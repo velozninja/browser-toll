@@ -1,0 +1,17 @@
+{
+    "timestamp": "2025-12-23 18:08:15.656099",
+    "status": "success",
+    "data_extracted": [
+        {
+            "id": 1,
+            "name": "Item A",
+            "value": 100
+        },
+        {
+            "id": 2,
+            "name": "Item B",
+            "value": 200
+        }
+    ],
+    "log_message": "Sample data transformation completed."
+}
