@@ -1,32 +1,45 @@
-from browser_use import Browser, Agent, CodeAgent, ChatBrowserUse
-import dotenv
-import os
+import datetime
 import asyncio
-
-apikey = "bu_97Y8Lb7xHIQyZoc-urORIOORDbh1NDGBPDy6j_FyrvI"
-
-task ="1 encontrar dados a respeito do clima ou seja chuva e umidade no estado de Mato Grosso do Sul" \
-       "2 analisar os dados encontrados e extrair informações relevantes sobre padrões de chuva e umidade" \
-       "3 apresentar as informações de forma clara e concisa, destacando tendências e variações" \
-       "4 fornecer informações de 2020 até 2025"
+from configscs import ConfigcodeSCS
+from configscs import ConfiglogSCS
+import time
+import aply_config as pc
 
 
-browser = Browser(headless=False)
-bragent = Agent(
-    browser=browser,
-    task=task,
-    llm=ChatBrowserUse(api_key=apikey)
+
+ct = pc.central = ConfigcodeSCS(
+
+    task=pc.task_usuario(),
+
+    regras="não quebrar as diretrizes dos sites ao navegar neles"
 )
 
-async def main():
-    result = await bragent.run()
-    taskcd = "faça um grafico de barras com os dados das informações de tacha de chuva e umidade por data fornecida pela pesquisa nos dados da variavel result "
-    agentcd = CodeAgent(
-        task=taskcd,
-        llm=ChatBrowserUse(api_key=apikey)
-    )
-    code_result = await agentcd.run()
-    print(result)
-    print(code_result)
 
-asyncio.run(main())
+resultados = asyncio.run(pc.rodar(ct))
+
+
+
+
+
+
+tasklog = f"voce OBRIGATORIAMENTE deve criar um arquivo json com o nome log com os seguintes campo timestamp, task q é igual a variavel{pc.task_usuario}, result que é igual a varievel {resultados} só q resumidas a ponto q um humano poça ler de forma humanizada e quando oa rquivo json foi atualizado por voce e quando voce for atualizar o arquivo json voce OBRIGATORIAMENTE vai manter a estrutura de organização que ele se encontra"
+
+ctlog = pc.centrallog = ConfiglogSCS(
+
+    regras="não quebrar as diretrizes dos sites ao navegar neles",
+
+    tasklog=tasklog
+)
+
+
+log_resultados = asyncio.run(pc.rodar_log(ctlog))
+time.sleep(5)
+print("-------------------------------")
+print("Execução sendo verificada.")
+
+
+
+time.sleep(5)
+print("Execução finalizada.")
+print("-------------------------------")
+
