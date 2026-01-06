@@ -8,12 +8,13 @@ Fluxo:
 Observação: este arquivo orquestra chamadas assíncronas via `asyncio.run`.
 """
 
-import datetime
+
 import asyncio
 from configscs import ConfigcodeSCS
 from configscs import ConfiglogSCS
 import time
 import aply_config as pc
+
 
 
 
@@ -39,7 +40,7 @@ resultados = asyncio.run(pc.rodar(ct))
 # e metadados de atualização). Atenção: aqui o f-string inclui `pc.task_usuario`
 # (função) e `resultados` (o retorno do agente) — manter esse comportamento
 # preserva a intenção original do código.
-tasklog = f"voce OBRIGATORIAMENTE deve criar um arquivo json com o nome log com os seguintes campo timestamp, task q é igual a variavel{pc.task_usuario}, result que é igual a varievel {resultados} só q resumidas a ponto q um humano poça ler de forma humanizada e quando oa rquivo json foi atualizado por voce e quando voce for atualizar o arquivo json voce OBRIGATORIAMENTE vai manter a estrutura de organização que ele se encontra"
+tasklog = f"voce OBRIGATORIAMENTE deve criar um arquivo json com o nome log com os seguintes campo timestamp, task q é igual a variavel{pc.task_usuario}, result que é igual a varievel {resultados} só q resumidas a ponto q um humano poça ler de forma humanizada e quando oa rquivo json foi atualizado por voce e quando voce for atualizar o arquivo json voce OBRIGATORIAMENTE vai manter a estrutura de organização que ele se encontra e depois voce irá criar um arquivo de historico de logs e vc vai por informações mais expecificas e na hora de atualizar o historico vc vai adicionar outros campos abaixo dos anterires"
 
 # Cria a instância do agente de log com o texto de tarefa acima.
 ctlog = pc.centrallog = ConfiglogSCS(
