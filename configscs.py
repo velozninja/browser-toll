@@ -8,7 +8,7 @@ Este módulo fornece classes que encapsulam a criação e execução de
 Todas as mensagens e documentação estão em Português (BR).
 """
 
-from browser_use import CodeAgent, ChatBrowserUse, Agent
+from browser_use import CodeAgent, ChatBrowserUse, Browser
 from dotenv import load_dotenv
 import os
 import asyncio
@@ -55,7 +55,9 @@ class ConfigcodeSCS:
 
 #criando o agente de log com a biblioteca Browser Use
 class ConfiglogSCS:
-    def __init__(self,   regras: str, tasklog: str):
+    browser = Browser(headless=True)
+    def __init__(self,   regras: str, tasklog: str, browser):
+        self.browser = browser
 
         self.tasklog = tasklog
 
@@ -65,6 +67,7 @@ class ConfiglogSCS:
             llm=ChatBrowserUse(),
             task=self.tasklog,
             rules=self.regras,
+            browser=self.browser
         )
         #comando para rodar
     async def run_log(self, log_task: str):

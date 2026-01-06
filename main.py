@@ -44,16 +44,12 @@ tasklog = f"voce OBRIGATORIAMENTE deve criar um arquivo json com o nome log com 
 # Cria a instância do agente de log com o texto de tarefa acima.
 ctlog = pc.centrallog = ConfiglogSCS(
     regras="não quebrar as diretrizes dos sites ao navegar neles",
-    tasklog=tasklog
+    tasklog=tasklog,
+    browser=pc.centrallog.browser
 )
 
 #execultando agente log
 log_resultados = asyncio.run(pc.rodar_log(ctlog))
-time.sleep(5)
-print("-------------------------------")
-print("Execução sendo verificada.")
-
-
 
 time.sleep(5)
 print("Execução finalizada.")

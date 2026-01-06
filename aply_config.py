@@ -24,15 +24,6 @@ def task_usuario():
     """
     return input("Digite sua tarefaa: ")
 
-
-
-
-
-
-
-
-
-
 # Instâncias padrão usadas pelo fluxo principal. Valores iniciais são
 # vazios e normalmente sobrescritos quando o script principal solicita
 # a entrada do usuário.
@@ -43,7 +34,8 @@ central = ConfigcodeSCS(
 centrallog = ConfiglogSCS(
 
     tasklog="" ,
-    regras="não quebrar as diretrizes dos sites ao navegar neles"
+    regras="não quebrar as diretrizes dos sites ao navegar neles",
+    browser=cf.ConfiglogSCS.browser
 )
 
 
