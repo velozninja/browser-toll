@@ -27,8 +27,16 @@ ct = pc.central = ConfigcodeSCS(
 )
 
 
+
 # Executa a tarefa principal do agente e guarda o resultado.
 resultados = asyncio.run(pc.rodar(ct))
+
+ctg = pc.central = ConfigcodeSCS(
+    task=f"fazer um grafico usando OBRIGATORIAMENTE matplotlib que mais se enquadra com o resultado{resultados} de forma resumida para pessoas também usando em consideranção a variavél {pc.task_usuario}",
+    regras="n quebrar regras de sites"
+)
+
+grafico = asyncio.run(pc.rodar(ctg))
 
 
 
